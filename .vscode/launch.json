@@ -9,7 +9,7 @@
       "name": "Deno: Run",
       "request": "launch",
       "type": "pwa-node",
-      "program": "08-debugging-in-deno/app.ts",
+      "program": "14-access-query-string/app.ts",
       "cwd": "${workspaceFolder}",
       "runtimeExecutable": "deno",
       "console": "integratedTerminal",
@@ -18,7 +18,7 @@
       ],
       "runtimeArgs": [
         "run",
-        "--inspect-brk",
+        "--inspect",
         "--allow-all"
       ],
       "attachSimplePort": 9229
