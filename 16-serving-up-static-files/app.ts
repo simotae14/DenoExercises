@@ -1,4 +1,7 @@
 import { serve } from "https://deno.land/std/http/server.ts";
+// file serve Deno
+import { serveFile } from "https://deno.land/std/http/file_server.ts";
+
 
 const PORT = 3000;
 const HOSTNAME = "0.0.0.0";
@@ -13,10 +16,6 @@ console.log(`Server now running at http://${HOSTNAME}:${PORT}`);
 
 // listen for requests
 for await (const req of server) {
-  const html = await Deno.readFile("index.html");
-
-  // respond to requests
-  req.respond({
-    body: html
-  });
+  const html = await serveFile(req, "index.html");
+  req.respond(html);
 }
