@@ -2,7 +2,7 @@ import { Application, Router, send } from "./deps.ts";
 import * as indexRouter from "./routes/indexRouter.ts";
 import * as usersRouter from "./routes/usersRouter.ts";
 
-const PORT = 3001;
+const PORT = 3000;
 const HOSTNAME = "0.0.0.0";
 
 // create an Application instance
