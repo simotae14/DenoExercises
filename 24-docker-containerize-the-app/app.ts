@@ -2,8 +2,8 @@ import { Application, Router, send } from "./deps.ts";
 import * as indexRouter from "./routes/indexRouter.ts";
 import * as usersRouter from "./routes/usersRouter.ts";
 
-const PORT = 3001;
 const HOSTNAME = "0.0.0.0";
+const PORT = Deno.env.get("PORT") || 3000;
 
 // create an Application instance
 const app = new Application();
@@ -16,7 +16,6 @@ usersRouter.use("/users", router);
 
 // static files route
 router.get("/public/:path+", async (ctx) => {
-  console.log("path", ctx.params.path);
   // send back the static file
   /* Solution 1: using ctx.params.path
   await send(ctx, ctx.params.path || "", {
@@ -40,7 +39,4 @@ app.use(router.allowedMethods());
 console.log(`Now listening on http://${HOSTNAME}:${PORT}`);
 
 // listen
-app.listen({
-  port: PORT,
-  hostname: HOSTNAME
-});
+await app.listen(`${HOSTNAME}:${PORT}`);
